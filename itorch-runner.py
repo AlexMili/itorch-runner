@@ -20,7 +20,8 @@ if __name__ == "__main__":
 		sources = []
 
 		for item in json_data['cells']:
-		    if item['cell_type'] == 'code':
+		    if item['cell_type'] == 'code' and len(item['source']) > 0:
+		    	item['source'][-1] = item['source'][-1]+'\n'
 		        sources = sources + item['source']
 
 		output_file = open(output_file_name, 'w')
